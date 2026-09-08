@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-
-import { Container, cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
+
+import { breakpoints, Container, colors } from '../../styles'
 
 export const Banner = styled.div`
   position: relative;
@@ -11,9 +11,13 @@ export const Banner = styled.div`
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
 
   padding-top: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
+  }
 
   &::after {
     position: absolute;
@@ -22,7 +26,7 @@ export const Banner = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${cores.preto2};
+    background-color: ${colors.black};
     opacity: 0.56;
   }
 
@@ -42,7 +46,7 @@ export const HeroContainer = styled(Container)`
 
 export const Infos = styled.div`
   padding: 16px;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   max-width: 290px;
   font-weight: bold;
 

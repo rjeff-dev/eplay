@@ -5,7 +5,7 @@ type Props = {
   bg: string
 }
 
-export const Imagem = styled.div<Props>`
+export const Image = styled.div<Props>`
   width: 100%;
   height: 560px;
 
@@ -51,12 +51,12 @@ export const Imagem = styled.div<Props>`
   }
 `
 
-export const Titulo = styled.h2`
+export const Title = styled.h2`
   font-size: 36px;
   max-width: 450px;
 `
 
-export const Precos = styled.p`
+export const Prices = styled.p`
   font-size: 24px;
   margin-top: 24px;
 

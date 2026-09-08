@@ -1,11 +1,12 @@
-import { Banner, HeroContainer, Infos } from './style'
-import { Game } from '../../pages/Home'
-import Tag from '../Tag'
-import Button from '../button'
-import { formataPreco } from '../ProductList'
 import { useDispatch } from 'react-redux'
 
+import * as S from './style'
+
+import Tag from '../Tag'
+import Button from '../Button'
+
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 
 export type Props = {
   game: Game
@@ -20,39 +21,43 @@ const Hero = ({ game }: Props) => {
   }
 
   return (
-    <Banner
+    <S.Banner
       style={{
         backgroundImage: `url(${game.media.cover})`
       }}
     >
-      <HeroContainer>
+      <S.HeroContainer>
         <div>
           <Tag>{game.details.category}</Tag>
           <Tag>{game.details.system}</Tag>
         </div>
-        <Infos>
+
+        <S.Infos>
           <h2>{game.name}</h2>
+
           <p>
             {game.prices.discount && (
-              <span>De {formataPreco(game.prices.old)}</span>
+              <span>De {parseToBrl(game.prices.old)}</span>
             )}
+
             {game.prices.current && (
-              <>Por {formataPreco(game.prices.current)}</>
+              <span>Por {parseToBrl(game.prices.current)}</span>
             )}
           </p>
+
           {game.prices.current && (
             <Button
               variant="primary"
-              type={'button'}
+              type="button"
               onClick={addCart}
-              title={'Carrinho'}
+              title="Carrinho"
             >
               Adicionar ao carrinho
             </Button>
           )}
-        </Infos>
-      </HeroContainer>
-    </Banner>
+        </S.Infos>
+      </S.HeroContainer>
+    </S.Banner>
   )
 }
 

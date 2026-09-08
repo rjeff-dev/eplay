@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import { Container, cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Items = styled.ul`
   display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 `
 
 export const Action = styled.div`
@@ -20,12 +22,12 @@ export const Action = styled.div`
 `
 
 export const Item = styled.li`
-  margin-right: 16px;
   position: relative;
+  cursor: zoom-in;
 
   > img {
     border-radius: 9px;
-    border: 2px solid ${cores.branca};
+    border: 2px solid ${colors.white};
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -73,6 +75,12 @@ export const HeaderModal = styled.header`
   h4 {
     font-size: 18px;
     font-weight: bold;
+  }
+
+  img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
   }
 `
 
